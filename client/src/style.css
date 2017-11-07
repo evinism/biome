@@ -1,0 +1,11 @@
+body {
+  color: #222;
+}
+
+
+.vector-display {
+  background-color: blue;
+  width: 500px;
+  height: 500px;
+  position: relative;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "biome-client",
+  "version": "0.0.1",
+  "description": "client for biome",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --port 8085"
+  },
+  "author": "evin sellin",
+  "license": "MIT",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.3.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.5",
+    "http-server": "^0.10.0",
+    "jquery": "^3.2.1",
+    "mathjs": "^3.16.5",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}
