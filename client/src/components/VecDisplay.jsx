@@ -5,7 +5,7 @@ const valToHex = (val) => {
   const mapToLetter = toClamp =>
     Math.round(Math.min(Math.max(toClamp * 16, 0), 15)).toString(16);
 
-  const r = mapToLetter(val);
+  const r = mapToLetter(val * 1.2);
   const g = mapToLetter((val - 0.6) / 0.4);
   const b = mapToLetter((val - 0.9) / 0.1);
   return `#${r}${g}${b}`;
