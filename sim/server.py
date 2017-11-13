@@ -1,20 +1,28 @@
-from flask import Flask, jsonify
-from flask_cors import CORS
-from environment import Environment
+import signal
+import sys
+from threading import Timer, Thread
+from biomeapi import BiomeApi
+from biomeenvironment import BiomeEnvironment
 
-print("starting biome server...")
-app = Flask(__name__)
-CORS(app)
+environment = BiomeEnvironment(50, 50)
 
-print('building environment...')
-env = Environment(50, 50)
+### Spin up threads
+# API thread
+def listen():
+  BiomeApi(environment)
 
-@app.route("/")
-def hello():
-  return "Hello World!"
+apiThread = Thread(target=listen)
+apiThread.daemon = True
+apiThread.start()
 
+### env update threads
+tickrate = 1.0
+def tick():
+  environment.tick()
+  tickThread = Timer(tickrate, tick)
+  tickThread.daemon = True
+  tickThread.start()
 
-@app.route("/density")
-def plant_density():
-  plant_density = env.get_world_state()[0]
-  return jsonify(plant_density.tolist())
+tick()
+
+signal.pause()
